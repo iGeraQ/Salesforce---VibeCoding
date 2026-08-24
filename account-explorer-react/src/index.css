@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* Notion-derived design tokens, exposed as Tailwind utilities (bg-primary, text-ink, etc.) */
+@theme {
+  --color-primary: #5645d4;
+  --color-primary-pressed: #4534b3;
+  --color-brand-navy: #0a1530;
+  --color-brand-navy-mid: #1a2a52;
+  --color-surface: #f6f5f4;
+  --color-surface-soft: #fafaf9;
+  --color-hairline: #e5e3df;
+  --color-hairline-strong: #c8c4be;
+  --color-ink: #1a1a1a;
+  --color-charcoal: #37352f;
+  --color-steel: #787671;
+  --color-stone: #a4a097;
+  --color-error: #e03131;
+
+  /* pastel tag backgrounds + matching darker text, used to color-code industries */
+  --color-tint-lavender: #e6e0f5;
+  --color-tint-sky: #dcecfa;
+  --color-tint-mint: #d9f3e1;
+  --color-tint-peach: #ffe8d4;
+  --color-tint-rose: #fde0ec;
+  --color-tint-yellow: #fef7d6;
+  --color-tint-cream: #f8f5e8;
+  --color-tint-gray: #f0eeec;
+
+  --color-tag-purple: #391c57;
+  --color-tag-blue: #005bab;
+  --color-tag-orange: #793400;
+  --color-tag-green: #1aae39;
+  --color-tag-pink: #a02e6d;
+  --color-tag-brown: #523410;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--color-surface);
+}

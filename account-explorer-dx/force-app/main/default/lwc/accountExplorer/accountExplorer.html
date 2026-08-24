@@ -1,0 +1,67 @@
+<template>
+    <lightning-card title="Account Explorer" icon-name="standard:account">
+        <div class="filter-bar slds-p-horizontal_medium slds-p-vertical_small">
+            <div class="slds-grid slds-gutters slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <lightning-input
+                        type="search"
+                        label="Search by name"
+                        value={searchTerm}
+                        onchange={handleSearchChange}
+                    ></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <lightning-combobox
+                        label="Industry"
+                        value={selectedIndustry}
+                        options={industryOptions}
+                        onchange={handleIndustryChange}
+                    ></lightning-combobox>
+                </div>
+            </div>
+        </div>
+
+        <template if:true={isLoading}>
+            <div class="slds-p-around_large slds-align_absolute-center">
+                <lightning-spinner alternative-text="Loading accounts" size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={hasError}>
+            <div class="state-message slds-p-around_large slds-text-align_center">
+                <lightning-icon icon-name="utility:error" variant="error" size="medium" class="slds-m-bottom_small"></lightning-icon>
+                <p class="slds-text-color_error">{errorMessage}</p>
+            </div>
+        </template>
+
+        <template if:true={showEmptyState}>
+            <div class="state-message slds-p-around_large slds-text-align_center slds-text-color_weak">
+                <lightning-icon icon-name="utility:search" size="medium" class="slds-m-bottom_small"></lightning-icon>
+                <p>No accounts match your search.</p>
+            </div>
+        </template>
+
+        <template if:true={hasResults}>
+            <div id="resultsTableWrapper" class={tableWrapperClass}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={filteredAccounts}
+                    columns={columns}
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}
+                    onsort={handleSort}
+                    hide-checkbox-column
+                ></lightning-datatable>
+            </div>
+            <div class="slds-p-horizontal_medium slds-p-bottom_small slds-text-align_center">
+                <lightning-button
+                    variant="base"
+                    label={expandButtonLabel}
+                    aria-expanded={ariaExpanded}
+                    aria-controls="resultsTableWrapper"
+                    onclick={toggleExpand}
+                ></lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>
