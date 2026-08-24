@@ -1,0 +1,10 @@
+[
+  { "Id": "a001", "Name": "Alux Studio", "Industry": "Design", "Phone": "+52 999 000 1001" },
+  { "Id": "a002", "Name": "Cenote Systems", "Industry": "Technology", "Phone": "+52 999 000 1002" },
+  { "Id": "a003", "Name": "Ceiba Market", "Industry": "Retail", "Phone": "+52 999 000 1003" },
+  { "Id": "a004", "Name": "Henequen Works", "Industry": "Manufacturing", "Phone": "+52 999 000 1004" },
+  { "Id": "a005", "Name": "Itza Logistics", "Industry": "Transportation", "Phone": "+52 999 000 1005" },
+  { "Id": "a006", "Name": "Jade Health", "Industry": "Healthcare", "Phone": "+52 999 000 1006" },
+  { "Id": "a007", "Name": "Kukulkan Learning", "Industry": "Education", "Phone": "+52 999 000 1007" },
+  { "Id": "a008", "Name": "Maya Solar", "Industry": "Energy", "Phone": "+52 999 000 1008" }
+]
