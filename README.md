@@ -46,13 +46,4 @@ Screenshots documenting the build and both running apps live in the [`img/`](img
 
 Both apps were built with **Claude Code** (Anthropic's CLI coding agent). The LWC/Apex version was scaffolded and iterated interactively; the React version was ported from a written, reviewed plan ([docs/superpowers/plans/2026-08-23-account-explorer-react.md](docs/superpowers/plans/2026-08-23-account-explorer-react.md)). Work was verified by running the actual tests and deploying to a live org — not assumed.
 
-### Short AI work log
-
-| Tool | Important prompt | Problem | Verification / correction |
-|------|------------------|---------|---------------------------|
-| Claude Code | "Create a Salesforce LWC `accountExplorer` plus its Apex controller…" | Initial scaffold — controller, LWC, meta files. | Wrote and ran Jest (10/10) and Apex tests (4/4 on a live org). |
-| Claude Code (review subagent) | "/requesting-code-review" | Reviewer flagged the SOQL enforced record sharing but not field-level security. | Added `WITH USER_MODE` to the query; re-reviewed. |
-| Claude Code | "improve the UI, add CSS styles" → "table shouldn't overflow" → "add an expand button" | `slds-gutters` negative margins bled the filter-bar background past the card; a follow-up `overflow-x:hidden` then clipped the combobox dropdown. | Split a padded outer div from the negative-margin inner grid; removed the `overflow-x` clip once the structural fix held. |
-| Claude Code | "add clean code principles… error handling" | Wrapping the query in try/catch left the catch block uncovered → deploy failed at 50% Apex coverage. | Added a test that runs as a minimum-access user to exercise the catch, restoring coverage; also caught a `bulk` reserved-keyword compile error earlier. |
-| Claude Code | "clean comments that don't add context" | Comments restated the code instead of explaining intent. | Removed section-label/how-comments; kept only business-logic rationale. |
-| Claude Code | "port to React" (from the written plan) | Replicate the LWC's exact filter/sort/state behavior without an org. | Ported the filter/sort logic test-first (`node:test`), then verified search/filter/sort/expand in-browser. |
+See **[AI_WORK_LOG.md](AI_WORK_LOG.md)** for the prompt-by-prompt log: each important prompt, a problem it caused, and how I checked or fixed it.
