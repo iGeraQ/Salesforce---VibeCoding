@@ -7,6 +7,14 @@
 
 Both share the same behavior and filter/sort/state-machine logic. The point of the repo is the comparison: how the same feature looks and is built on each platform, and how much of the work an AI coding agent (Claude Code) can do end-to-end — from scaffolding through review, iteration, testing, and cleanup.
 
+## Presentation Video
+
+A tour of the finished delivery: the Account Explorer LWC running inside Salesforce, and the React app running against sample data.
+
+- In-repo file: [video/demo.mp4](video/demo.mp4)
+- Or watch on Canva: [canva.link/1gxdy06dx6mjq8g](https://canva.link/1gxdy06dx6mjq8g)
+
+
 ## Projects
 
 ### [account-explorer-dx](account-explorer-dx/) — Lightning Web Component (Salesforce DX)
